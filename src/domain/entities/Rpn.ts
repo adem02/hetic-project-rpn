@@ -1,7 +1,7 @@
 import { Element } from "../types";
 
 export class Stack {
-  private readonly items: Element[];
+  readonly items: Element[];
   constructor() {
     this.items = [];
   }
