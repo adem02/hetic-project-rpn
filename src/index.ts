@@ -20,7 +20,7 @@ function isValidOperand(token: string): boolean {
     return !isNaN(Number(token)) && Number(token) >= 0;
 }
 
-function evalRPN(tokens: string[]): number {
+export function evalRPN(tokens: string[]): number {
 
     // initialising empty stack to calculate
     const stack: number[] = [];
@@ -63,4 +63,4 @@ function evalRPN(tokens: string[]): number {
     return stack[0];
 };
 
-console.log(evalRPN(["1", "1", "+"]));
+console.log(evalRPN(["1", "1", "1", "+"]));
