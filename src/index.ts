@@ -12,7 +12,6 @@ const operatorSets: IOperatorSets = {
 
 // function to check if token is a valid operator
 function isValidOperator(token: string): boolean {
-    console.log(token, operatorSets[token] != null)
     return operatorSets[token] != null;
 }
 
@@ -30,7 +29,7 @@ export function evalRPN(tokens: string[]): number {
     for (const token of tokens) {
 
         // if token is an operator, pop the last two operands from stack and calculate
-        if (operatorSets[token] != null) {
+        if (isValidOperator(token)) {
 
             // if token is NEGATE, pop the last operand from stack and continue to next iteration
             if (token === "NEGATE") {
@@ -53,7 +52,7 @@ export function evalRPN(tokens: string[]): number {
             stack.push(operatorSets[token](firstOperand, secondOperand));
         } else {
             // if token is not an operator, push it to stack
-            if (!(!isNaN(Number(token)) && Number(token) >= 0)) throw new Error('Invalid RPN expression ' + token);
+            if (!isValidOperand(token)) throw new Error('Invalid RPN expression ' + token);
 
             // push the number to stack
             stack.push(Number(token));
