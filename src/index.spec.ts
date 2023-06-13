@@ -18,7 +18,7 @@ describe('Succes cases', () => {
     expect(evalRPN(["3", "2", "-"])).toEqual(1);
   });
 
-  it('should return 1 for 3 - 2', () => {
+  it('should return 1 for 3 / 2', () => {
     expect(evalRPN(["3", "2", "/"])).toEqual(1);
   });
 
@@ -60,6 +60,10 @@ describe('Error cases', () => {
 
   it('should throw an error if the operator is not valid', () => {
     expect(() => evalRPN(["10", "5", "†"])).toThrowError('Invalid RPN expression');
+  });
+
+  it('should throw an error if there is no operand to calculate', () => {
+    expect(() => evalRPN(['+'])).toThrowError('Invalid RPN expression');
   });
 
 });
