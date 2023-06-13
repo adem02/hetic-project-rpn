@@ -12,7 +12,7 @@ const operatorSets: IOperatorSets = {
 
 // function to check if token is a valid operator
 function isValidOperator(token: string): boolean {
-    return operatorSets[token] != null;
+    return operatorSets[token] !== null;
 }
 
 // function to check if token is a valid number and greater than 0
@@ -33,7 +33,7 @@ function evaluateOperator(token: string, stack: number[]): void {
         if (token === '/' && secondOperand === 0) throw new Error('Division by zero');
 
         // throw error if there is no operand to calculate
-        if (firstOperand == null || secondOperand == null) throw new Error('Invalid RPN expression');
+        if (firstOperand === null || secondOperand === null) throw new Error('Invalid RPN expression');
 
         // push the result back to stack
         stack.push(operatorSets[token](firstOperand, secondOperand));
@@ -56,7 +56,8 @@ export function evaluateRpn(tokens: string[]): number {
     // looping the whole tokens array
     for (const token of tokens) {
 
-        // if token is an operator, pop the last two operands from stack and calculate
+        // if token is a valid operator, evaluate it
+        // else if token is a valid number, push it to stack
         if (isValidOperator(token)) {
             evaluateOperator(token, stack);
         } else {
