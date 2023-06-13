@@ -64,4 +64,4 @@ export function evalRPN(tokens: string[]): number {
     return stack[0];
 };
 
-// console.log(evalRPN(["10", "0", "/"]));
+console.log(evalRPN(["10", "1", "+"]));

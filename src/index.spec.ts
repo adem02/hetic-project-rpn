@@ -59,7 +59,7 @@ describe('Error cases', () => {
   });
 
   it('should throw an error if the operator is not valid', () => {
-    expect(() => evalRPN(["10", "5", "†"])).toThrowError('Invalid RPN expression');
+    expect(() => evalRPN(["10", "5", "♥"])).toThrowError('Invalid RPN expression');
   });
 
   it('should throw an error if there is no operand to calculate', () => {
