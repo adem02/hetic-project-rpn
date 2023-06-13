@@ -1,4 +1,4 @@
-import { IOperatorSets } from './domain/types';
+import { IOperatorSets } from './types/operators';
 
 // sets of operators and their corresponding functions
 const operatorSets: IOperatorSets = {

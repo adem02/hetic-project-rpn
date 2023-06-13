@@ -66,4 +66,4 @@ describe('Error cases', () => {
     expect(() => evalRPN(['+'])).toThrowError('Invalid RPN expression');
   });
 
-});
+}); 
